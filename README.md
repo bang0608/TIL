@@ -17,3 +17,9 @@
 
 - [MarkDown 문법 간단 정리](Git/markdown.md)
 - [ssh key 등록](Git/ssh key 등록.md)
+
+-----
+
+### IDE
+
+* [IntelliJ 사용팁](IDE/IntelliJ/IntelliJ_사용팁.md)
