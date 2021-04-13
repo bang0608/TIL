@@ -128,3 +128,31 @@ Bye
 ```
 
 * 다시 root로 접속해보면 정상적으로 동작 할 것이다.
+
+-----
+
+### 2. 삭제
+
+**[Mysql]**
+
+```
+$ sudo apt-get purge mysql-server
+$ sudo apt-get purge mysql-common
+```
+
+**[MariaDB]**
+
+```
+$ sudo apt-get purge mariadb-server
+$ sudo apt-get purge mariadb-common
+```
+
+**[공용작업]**
+
+```
+sudo rm -rf /var/log/mysql
+sudo rm -rf /var/log/mysql.*
+sudo rm -rf /var/lib/mysql
+sudo rm -rf /etc/mysql
+```
+
