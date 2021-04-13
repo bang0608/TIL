@@ -9,6 +9,7 @@
 ## Ubuntu
 
 * [Ubuntu 기본 셋팅](Ubuntu/ubuntu_18_04_기본%20셋팅.md)
+* [Ubuntu Java,MariaDB_설치](Ubuntu/ubuntu_Java,MariaDB_설치.md)
 
 ## Java
 

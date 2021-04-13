@@ -66,3 +66,11 @@
   ```
 
 * 위 옵션 추가
+
+-----
+
+### * 한글 설치 및 설정
+
+* [Ubuntu 18.04 LTS 한글 설치 및 설정](https://gabii.tistory.com/entry/Ubuntu-1804-LTS-%ED%95%9C%EA%B8%80-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EC%A0%95)
+* [Ubuntu 16.04(VMware) 한글 설정 방법](https://miiingo.tistory.com/153)
+* [Ubuntu 20.04 / 18.04 설치 완료 후 한글 설정하는 방법](https://webnautes.tistory.com/1199)
