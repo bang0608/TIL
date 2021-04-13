@@ -7,13 +7,13 @@
 
 ## Ubuntu
 
-* [Ubuntu 기본 셋팅](Ubuntu/ubuntu_18_04_기본 셋팅.md)
+* [Ubuntu 기본 셋팅](Ubuntu/ubuntu_18_04_기본%20셋팅.md)
 
 ## Java
 
-* [Java 설치](Java/Java 설치.md)
+* [Java 설치](Java/Java%20설치.md)
 
 ## Git
 
 - [MarkDown 문법 간단 정리](Git/markdown.md)
-- [ssh key 등록](Git/ssh key 등록.md)
+- [ssh key 등록](Git/ssh%20key%20등록.md)
