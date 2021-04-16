@@ -4,7 +4,7 @@
 ----------
 ## AWS
 
-* [EC2 인스턴스 생성 및 연결](AWS/EC2시작.md)
+* [EC2 인스턴스 생성 및 접속](AWS/EC2시작.md)
 * [Route53 도메인 연결](AWS/route53_도메인연결.md)
 
 ## Ubuntu
