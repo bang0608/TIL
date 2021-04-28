@@ -21,6 +21,7 @@
 
 - [MarkDown 문법 간단 정리](Git/markdown.md)
 - [ssh key 등록](Git/ssh%20key%20등록.md)
+- [Github Contributions 그래프 조건](/Git/Github_Contributions_그래프_조건.md)
 
 ## IDE
 
