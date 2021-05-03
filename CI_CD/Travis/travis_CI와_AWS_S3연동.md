@@ -33,3 +33,53 @@
 
 ### 4. 프로젝트 Travis 설정하기
 
+1. travis.yml 파일에 코드 추가
+
+```
+before_deploy:
+  - zip -r springboot-webservice *
+  - mkdir -p deploy
+  - mv springboot-webservice.zip deploy/springboot-webservice.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # Travis repository settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repository settings에 설정된 값
+    bucket: banghyunwoo # S3 버킷
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private # zip 파을 접근을 private로
+    local_dir: deploy # before_deploy에서 생성한 디렉토리
+    wait-until-deployed: true
+```
+
+---
+
+### 5. Travis CI와 AWS S3, CodeDeploy 연동
+
+1. EC2가 CodeDeploy를 연동 받을 수 있게 IAM 역할 생성
+   * IAM 역할 만들기 : 역할 서비스 EC2 선택
+   * 권한 정책 연결 : AmazonEC2RoleforAWSCodeDeploy 체크
+
+2. EC2 인스턴스 IAM 역할 변경
+   * 인스턴스 마우스 우클릭 - 보안 - IAM 역할 연결 수정 선택
+   * AWS 역할 선택 후 `재부팅` (재부팅 해야만 역할이 정상적으로 적용됨)
+
+3. CodeDeploy 에이전트 설치
+
+   * EC2 접속 후 다음 명령어 입력
+   * `aws s3 cp s3://aws-codedeploy-ap-northeast-2/latest/install . --region ap-northeast-2`
+   * 내려받기가 성공하면 아래 메세지 콘솔에 출력됨.
+   * `download: s3://aws-codedeploy-ap-northeast-2/latest/install to ./install`
+
+   * install 파일에 실행 권한 부여 : `chmod +x ./install`
+   * 설치 진행 : `sudo ./install auto`
+     * `/usr/bin/env: ‘ruby’: No such file or directory`라는 메세지와 함께 설치가 안될 경우
+     * `sudo apt-get install ruby` 명령어로 ruby 설치 후 진행
+
+   * `sudo service codedeploy-agent status` 명령어로 Agent 상태 확인
+
+---
+
+### 6. CodeDeploy를 위한 권한 생성
+
