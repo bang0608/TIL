@@ -53,6 +53,17 @@ deploy:
     wait-until-deployed: true
 ```
 
+* 빌드 후 `Skipping a deployment with the s3 provider because this branch is not permitted: main` 메세지와 함께 s3 버킷에 .zip 파일 업로드가 되지 않았다.
+* deploy 시 권한 문제로 업로드가 안되는 현상
+
+```
+wait-until-deployed: true
+    on:
+      branch: main
+```
+
+* 아래에 on: branch: main 추가 작성하여 권한 부여 후 정상 동작 확인
+
 ---
 
 ### 5. Travis CI와 AWS S3, CodeDeploy 연동
