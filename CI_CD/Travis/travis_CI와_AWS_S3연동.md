@@ -113,3 +113,36 @@ wait-until-deployed: true
 
 ### 8. Travis CI, S3, CodeDeploy .연동
 
+1. S3에서 넘겨줄 zip 파일 저장할 디렉토리 생성
+   * `mkdir ~/dev/zip`
+
+2. travis.yml 파일에 codedeploy 내용 추가
+
+```
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: banghyunwoo
+    key: springboot-webservice.zip # 빌드 파일을 압축해서 전달
+    bundle_type: zip
+    application: springboot-webservice # AWS 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
+    deployment_group: springboot-webservide-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
+    region: ap-northeast-2
+    wait-until-deployed: true
+    on:
+      branch: main
+```
+
+3. appspec.yml 파일 추가 (travis.yml 파일과 같은 위치)
+
+```
+version: 0.0 # CodeDeploy 버전, Project 버전과는 별개
+os: linux
+files:
+  - source:  / # CodeDeploy 에서 전달해 준 파일 중 destination 으로 이동시킬 대상 ( 루트 경로 지정 시 전체 파일 )
+    destination: /home/ubuntu/dev/zip/
+    overwrite: yes
+```
+
+4. 깃허브 커밋 & 푸시, Travis CI 완료 후 CodeDeploy 화면서 배포 내역 확인 가능
+5. EC2에 정상적으로 프로젝트 파일 확인
