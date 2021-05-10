@@ -14,6 +14,7 @@
 
 * [Travis CI 시작하기](CI_CD/Travis/travis_CI_시작하기.md)
 * [Travis CI와 AWS S3 연동](CI_CD/Travis/travis_CI와_AWS_S3연동.md)
+* [배포 자동화 구성](CI_CD/Travis/배포_자동화_구성.md)
 
 ---
 
